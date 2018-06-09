@@ -8,13 +8,13 @@ import { LandingPage } from '../pages/Landing';
 import { SkillsPage } from '../pages/Skills';
 // Common components
 import { NavBar } from '../common/NavBar';
+// TODO: SideBar goes here if needed
 
 export class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <NavBar />
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/skills" component={SkillsPage} />
           <Route exact path="/profile" component={UserProfilePage} />
