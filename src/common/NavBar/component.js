@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 
+// TODO: Work on this towards the end
+
 class NavBarComponent extends React.Component {
   render() {
     return (
