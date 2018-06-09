@@ -1,7 +1,9 @@
 import React from 'react';
 
-export class Input extends React.Component {
+class InputComponent extends React.Component {
   render() {
     return <input type="text" />;
   }
 }
+
+export const Input = InputComponent;
