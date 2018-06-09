@@ -2,8 +2,10 @@ import React from 'react';
 
 import './styles.css';
 
-export class UserProfilePage extends React.Component {
+class UserProfilePageComponent extends React.Component {
   render() {
-    return <div>User Profile Page</div>;
+    return <div className="user-profile-page">User Profile Page</div>;
   }
 }
+
+export const UserProfilePage = UserProfilePageComponent;
