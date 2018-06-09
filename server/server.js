@@ -13,17 +13,7 @@ app.get("/", (req, res) => {
   res.send("test");
 });
 
-app.get("/getcourses", function(req, res) {
-  request(
-    "https://authenticjobs.com/api/?api_key=63bc8064b1c91080cba959a745b85175&format=json&method=aj.jobs.search&keywords=developer&perpage=100&aj.jobs.getLocation=Austin",
-    function(error, response, body) {
-      if (!error && response.statusCode == 200) {
-        const data = JSON.parse(body);
-        res.json(data);
-      }
-    }
-  );
-});
+
 app.get("/popularskills", function(req, res) {
     request(
       "https://authenticjobs.com/api/?api_key=63bc8064b1c91080cba959a745b85175&format=json&method=aj.jobs.search&keywords=developer&perpage=100&aj.jobs.getLocation=Austin",
