@@ -20,10 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/jobs', function(req, res) { 
-    req.header({
-        "Authorization": "Basic bDVKOWtMNG9pdjh6TlpZZ2dKekNYVm5icEZGT1FJSkhoSnUybU52RzpZYlc1ZDIzejZIQTV6c2QyVGYyYXRBNURKVXl3WkFYWlRsNlhtRjJQNENKazRPSk9yMTB0em9XZFdkS01La1g2RmRNY091THNtY2FtSG9QMUZCYTNBSERBOHlHT3E3RFhKTE1VdTA0WjdCSWFUS25LSUQ1djl0U0JNSWdvSzRYTw==",
-        "Accept": "application/json, text/plain, */*"
-      })
     request("https://authenticjobs.com/api/?api_key=63bc8064b1c91080cba959a745b85175&format=json&method=aj.jobs.search&keywords=developer&perpage=100",
             function (error, response, body) {
                 
@@ -100,7 +96,10 @@ app.get('/jobs', function(req, res) {
 });  
 
 app.get('/udemy', function(req, res) { 
-    res.set('x-timestamp', Date.now())
+    res.set({
+        "Authorization": "Basic bDVKOWtMNG9pdjh6TlpZZ2dKekNYVm5icEZGT1FJSkhoSnUybU52RzpZYlc1ZDIzejZIQTV6c2QyVGYyYXRBNURKVXl3WkFYWlRsNlhtRjJQNENKazRPSk9yMTB0em9XZFdkS01La1g2RmRNY091THNtY2FtSG9QMUZCYTNBSERBOHlHT3E3RFhKTE1VdTA0WjdCSWFUS25LSUQ1djl0U0JNSWdvSzRYTw==",
+        "Accept": "application/json, text/plain, */*"
+      })
     request("https://www.udemy.com/api-2.0/courses/?page=2&page_size=12&ratings=4&search=html",
             function (error, response, body) {
 
