@@ -30,13 +30,14 @@ class SearchPageComponent extends Component {
   componentDidMount() {
     console.log("componentDidMount");
     axios
-      .get("http://localhost:3001/api")
+      .get("http://localhost:3001/jobs")
       .then(function(response) {
         // console.log(response);
         // console.log(response.data.listings.listing[0].title)
         //for loop
         for (var i=0; i <101; i++){
-          console.log(response.data.listings.listing[i].description.toLowerCase().includes("html"))
+          console.log(response.data.listings.listing[i].description.toLowerCase().match(/python/g) || []);
+          let listed = response.data.listings.listing[i].description.toLowerCase().match(/python/g) || [];
         }
  
         console.log(data.categories.developer[0].title)
@@ -51,9 +52,9 @@ class SearchPageComponent extends Component {
       <div className="App">
         <div className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h2>Welcome to React</h2>
+          {/* <h2>Welcome to React</h2> */}
         </div>
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
           <label>
             <input
               type="text"
@@ -62,8 +63,11 @@ class SearchPageComponent extends Component {
             />
           </label>
           <input type="submit" value="Submit" />
-          <p>{data.categories.developer[0].title}</p>
-        </form>
+        </form> */}
+        <p>{data.categories.developer[0].subject} appeared 8 times in "developer" job listings in Austin TX</p>
+        <p>{data.categories.developer[0].title}</p>
+          <img src={data.categories.developer[0].image}></img>
+          <p><a href={data.categories.developer[0].link}>Get course</a> </p>
       </div>
     );
   }
