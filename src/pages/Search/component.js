@@ -11,7 +11,8 @@ var data = require("../../courses.json");
 class SearchPageComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "",
+  object: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,13 +32,13 @@ class SearchPageComponent extends Component {
     axios
       .get("http://localhost:3001/api")
       .then(function(response) {
-        console.log(response);
-        console.log(response.data.listings.listing[0].title)
-        const info = JSON.parse(response);
-        console.log("info is "+ info)
-        
-
-        //getting json object
+        // console.log(response);
+        // console.log(response.data.listings.listing[0].title)
+        //for loop
+        for (var i=0; i <101; i++){
+          console.log(response.data.listings.listing[i].description.toLowerCase().includes("html"))
+        }
+ 
         console.log(data.categories.developer[0].title)
       })
       .catch(function(error) {

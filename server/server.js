@@ -75,6 +75,13 @@ app.get('/api', function(req, res) {
                   .match(/angular/g) || []
               ).length;
               console.log("angular count " + countAngular);
+              const countQqq = (
+                body
+                  .toString()
+                  .toLowerCase()
+                  .match(/qqq/g) || []
+              ).length;
+              console.log("qqq count " + countQqq);
               // python count 8
               // ruby count 0
               // scala count 2
